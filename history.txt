@@ -1,0 +1,8 @@
+docker build -t caddy-app:1.0 .
+docker run -d -p 8080:80 --name caddy-app-run caddy-app:1.0
+docker ps
+docker stop caddy-app-run
+docker volume create caddy-vol
+docker volume ls
+docker volume inspect caddy-vol
+docker run -d -p 8080:80 -v caddy-vol:/usr --name caddy-app-run2 caddy-app:1.0
